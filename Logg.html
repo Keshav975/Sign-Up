@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm" action="loginAction()" method="POST">
+            <div class="input-container">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-container">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" id="submitBtn">Login</button>
+            <p id="error-message" style="color: red; display: none;">Please fill in both fields.</p>
+        </form>
+    </div>
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: Dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: purple;
+}
+
+p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+    </style>
+    <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    
+    if (username && password) {
+        // Here you would send the form data to the backend (e.g., via AJAX or a fetch request)
+        console.log('Logging in with:', username, password);
+        alert('Login successful!'); // For demonstration
+        // After successful login, you can redirect:
+        // window.location.href = '/home'
+        ;
+    } else {
+        // Display error message if fields are empty
+        document.getElementById('error-message').style.display = 'block';
+    }
+});
+
+    </script>
+</body>
+</html>
